@@ -30,22 +30,8 @@ def get_candidate_lines(input_masks):
 	masks[np.where(masks>0)] = 255 
 	return masks
 
-
 def process_gt(gt_mask):
 	return cv2.cvtColor(gt_mask, cv2.COLOR_BGR2GRAY)//255
-
-
-def compare(gt_mask,pred_mask):
-	pred_sum = np.sum(pred_mask)
-	gt_sum = np.sum(gt_mask)
-	intersection = np.sum(np.logical_and(gt_mask,pred_mask))
-	union = np.sum(np.logical_or(gt_mask,pred_mask))
-	precision = intersection/pred_sum
-	recall = intersection/gt_sum
-	f1 = 2*precision*recall/(precision+recall)
-	iou = intersection/union
-	distance_deviation = 1- ssim(gt_mask,pred_mask)
-	return precision,recall,f1,iou,distance_deviation
 
 def get_label(json_dir,label_type='point'):
 	points = []
