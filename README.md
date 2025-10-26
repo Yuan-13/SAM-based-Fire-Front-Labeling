@@ -66,17 +66,21 @@ To start labeling:
 labelme
 ```
 
-### Manual Selection Example
+### Manual Selection Example using Labelme:
 
-Below shows example of manual selecting prompt points and range using **Labelme**:
-
-**Prompt Points Selection**: Shape Type -- **Point**; Group ID -- **point**; randomly click among **unburned area**.
+1. **Prompt Points Selection**:
+   - Shape Type -- **Point**;
+   - Group ID -- **point**;
+   - randomly click among **unburned area**.
 
 <p align="center">
     <img src="examples/manual_selection_point.png">
 </p>
 
-**Range Selection**: Shape Type -- **Rectangle**; Group ID -- **area**; cover fire front only.
+2. **Range Selection**:
+   - Shape Type -- **Rectangle**;
+   - Group ID -- **area**;
+   - cover fire front only.
 
 <p align="center">
     <img src="examples/manual_selection_range.png">
@@ -89,7 +93,7 @@ Below shows example of manual selecting prompt points and range using **Labelme*
 Manual selection provides the basic information for fire front label generation. And also used for label refinement.
 
 **Guidelines:**
-1. Select **prompt points** and **fire front range** as the previous examples.
+1. Select **prompt points** and **fire front range** following the previous examples.
 2. Save JSON files following the same name as the corresponding image:
     - Example: `9621.jpg → 9621.json`
 
@@ -130,16 +134,10 @@ python create_SFL_labels.py
 
 ## 📘 Citation
 
-**SAM**:
-@inproceedings{kirillov2023segment,
-  title={Segment anything},
-  author={Kirillov, Alexander and Mintun, Eric and Ravi, Nikhila and Mao, Hanzi and Rolland, Chloe and Gustafson, Laura and Xiao, Tete and Whitehead, Spencer and Berg, Alexander C and Lo, Wan-Yen and others},
-  booktitle={Proceedings of the IEEE/CVF international conference on computer vision},
-  pages={4015--4026},
-  year={2023}
-}
+**SAM**: \
+Kirillov, Alexander, Eric Mintun, Nikhila Ravi, Hanzi Mao, Chloe Rolland, Laura Gustafson, Tete Xiao et al. "Segment anything." In Proceedings of the IEEE/CVF international conference on computer vision, pp. 4015-4026. 2023.
 
-**SFL**:
+**SFL**: \
 Coming soon ...
 
 ------------------------------------------------------------------------
@@ -148,4 +146,4 @@ Coming soon ...
 
 For questions or collaboration, please contact:\
 **Yuan Feng**\
-📧 \[yfzc8@umsystem.edu\]\
+📧 \[yfzc8@umsystem.edu\]
