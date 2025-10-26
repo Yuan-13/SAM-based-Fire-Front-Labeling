@@ -122,25 +122,30 @@ python create_SFL_labels.py
     │   ├── 9621.png
     │   └── ...
 
+<p align="center">
+    <img src="dataset/labels/9621.png">
+</p>
+
 ------------------------------------------------------------------------
 
 ## 📘 Citation
 
-If you use SFL in your work, please cite:
+**SAM**:
+@inproceedings{kirillov2023segment,
+  title={Segment anything},
+  author={Kirillov, Alexander and Mintun, Eric and Ravi, Nikhila and Mao, Hanzi and Rolland, Chloe and Gustafson, Laura and Xiao, Tete and Whitehead, Spencer and Berg, Alexander C and Lo, Wan-Yen and others},
+  booktitle={Proceedings of the IEEE/CVF international conference on computer vision},
+  pages={4015--4026},
+  year={2023}
+}
 
-    @misc{SFL2025,
-      title = {SAM-based Fire Front Labeling (SFL)},
-      author = {Yuan, F.},
-      year = {2025},
-      howpublished = {GitHub Repository},
-      note = {https://github.com/<your-repo>}
-    }
+**SFL**:
+Coming soon ...
 
 ------------------------------------------------------------------------
 
 ## 💬 Contact
 
 For questions or collaboration, please contact:\
-**Yuan F.**\
-📧 \[your.email@domain.edu\]\
-🌐 \[your website or lab link\]
+**Yuan Feng**\
+📧 \[yfzc8@umsystem.edu\]\
