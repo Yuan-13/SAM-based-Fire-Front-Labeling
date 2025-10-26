@@ -1,15 +1,7 @@
 from segment_anything import SamAutomaticMaskGenerator, sam_model_registry,SamPredictor
 import cv2
-import matplotlib.pyplot as plt
 import numpy as np
-import csv
-
-import argparse
-import os
-import shutil
-import time
 import json
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -22,19 +14,9 @@ import torchvision.datasets as datasets
 from torch.autograd import Variable
 import glob
 from skimage import morphology
-
-from wideresnet import WideResNet
-
-# used for logging to TensorBoard
 from tensorboard_logger import configure, log_value
-
-import csv
-import waterfowl_balanced_dataset as dataset
-from eval import class_accuracy as accuracy
-from sklearn.metrics import classification_report
-from sklearn.metrics import accuracy_score
-import numpy as np
 from skimage.metrics import structural_similarity as ssim
+
 
 def get_candidate_lines(input_masks):
 	# sorted_anns = sorted(anns, key=(lambda x: x['area']), reverse=True)
@@ -96,11 +78,9 @@ def remove_spots(masks):
 	masks = morphology.remove_small_objects(masks, 10000)
 	masks = morphology.remove_small_holes(masks, 10000)
 	return np.float64(255*masks)
-
-
+	
 
 image_list = glob.glob('/home/yuanfeng/Fire_Project/Data/FireData/20191008FireFlight2NIR_RawImage4Stich/selected/images/*.png')
-# image_list = glob.glob('/home/yuanfeng/Fire_Project/Models/Fire_Sam/NIR20240912_LeftFire_frames/images_0530_burn&unburn/*.jpg')
 
 
 for image_dir in image_list:
