@@ -108,12 +108,10 @@ for image_dir in image_list:
 			if masks[r,c] == 255:
 				result_image[r,c] = np.array([0,0,0])
 				# print(r, c, result_image[r,c])
-	
 
 	masks = cv2.cvtColor( np.float32(masks),cv2.COLOR_GRAY2RGB)
 	cv2.imwrite(save_dir,masks)
 	cv2.imwrite(result_image_dir,result_image)
-
 
 	print('DONE！！！')
 
