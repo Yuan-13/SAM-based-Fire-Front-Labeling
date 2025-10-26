@@ -66,7 +66,7 @@ def remove_spots(masks):
 	return np.float64(255*masks)
 	
 
-image_list = glob.glob('/home/yuanfeng/Fire_Project/Data/FireData/20191008FireFlight2NIR_RawImage4Stich/selected/images/*.png')
+image_list = glob.glob('./dataset/images/*.png')
 
 
 for image_dir in image_list:
@@ -99,7 +99,7 @@ for image_dir in image_list:
 			if not is_in_range(y,x,ranges):
 				masks[x][y] = 0
 	save_dir = image_dir.replace('/images/','/labels/')
-	result_image_dir = image_dir.replace('/images/','/result_image_label/')
+	result_image_dir = image_dir.replace('/images/','/overlay/')
 
 	# # show the label on original image (overlay)
 	result_image = image
