@@ -3,6 +3,10 @@
 **SFL** (SAM-based Fire Front Labeling) is a semi-automatic fire front annotation framework designed to efficiently generate high-quality fire front labels from aerial images.\
 It leverages Meta's **Segment Anything Model (SAM)** and combines it with minimal manual labeling to produce accurate, consistent, reproducible and one-pixel-wide masks for fire modeling (e.g. rate of spread).
 
+<p align="center">
+    <img src="examples/manual_selection_range.png">
+</p>
+
 ------------------------------------------------------------------------
 
 ## 🌎 Environment Setup
@@ -66,32 +70,37 @@ labelme
 
 Below shows example of manual selecting prompt points and range using **Labelme**:
 
-![points example](examples/manual_selection_point)
+**Prompt Points Selection**: Shape Type -- **Point**; Group ID -- **point**; randomly click among **unburned area**.
+
+<p align="center">
+    <img src="examples/manual_selection_point.png">
+</p>
+
+**Range Selection**: Shape Type -- **Rectangle**; Group ID -- **area**; cover fire front only.
+
+<p align="center">
+    <img src="examples/manual_selection_range.png">
+</p>
 
 ------------------------------------------------------------------------
 
-## ✍️ Manual Labeling Protocol
+## ✍️ Manual Selection Protocol
 
-Manual labels are used **only for initialization or validation** of SAM
-predictions.
+Manual selection provides the basic information for fire front label generation. And also used for label refinement.
 
-**Guidelines:** 1. Draw **thin line segments** around clear fire front
-regions. 2. Save JSON files following the same name as the corresponding
-image:\
-- Example: `IMG_001.jpg → IMG_001.json` 3. Use the `fire_front` label
-class name for all annotations. 4. Avoid labeling smoke-only areas.
+**Guidelines:**\
+1. Select **prompt points** and **fire front range** as the previous examples.
+2. Save JSON files following the same name as the corresponding image:\
+    - Example: `9621.jpg → 9621.json`
+
 
 **Directory structure:**
 
-    SFL/
-    │
-    ├── dataset/
-    │   ├── images/
-    │   │   ├── IMG_001.jpg
-    │   │   └── IMG_002.jpg
-    │   └── labels/
-    │       ├── IMG_001.json
-    │       └── IMG_002.json
+    dataset/
+    ├── images/
+    │   ├── 9621.png
+    │   ├── 9621.json
+    │   └── ...
 
 ------------------------------------------------------------------------
 
