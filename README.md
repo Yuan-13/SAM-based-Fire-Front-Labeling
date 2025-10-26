@@ -4,7 +4,7 @@
 It leverages Meta's **Segment Anything Model (SAM)** and combines it with minimal manual labeling to produce accurate, consistent, reproducible and one-pixel-wide masks for fire modeling (e.g. rate of spread).
 
 <p align="center">
-    <img src="examples/manual_selection_range.png">
+    <img src="examples/overlay.png">
 </p>
 
 ------------------------------------------------------------------------
