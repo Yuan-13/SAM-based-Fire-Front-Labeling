@@ -88,11 +88,10 @@ Below shows example of manual selecting prompt points and range using **Labelme*
 
 Manual selection provides the basic information for fire front label generation. And also used for label refinement.
 
-**Guidelines:**\
+**Guidelines:**
 1. Select **prompt points** and **fire front range** as the previous examples.
-2. Save JSON files following the same name as the corresponding image:\
+2. Save JSON files following the same name as the corresponding image:
     - Example: `9621.jpg → 9621.json`
-
 
 **Directory structure:**
 
@@ -104,46 +103,23 @@ Manual selection provides the basic information for fire front label generation.
 
 ------------------------------------------------------------------------
 
-## 🔧 Creating New Labels with SAM
+## 🔧 Creating SFL Labels
 
-Use the provided Python script `create_sfl_labels.py` to automatically
-generate fire front masks using SAM and the manual initialization lines.
+Use the provided Python script `create_SFL_labels.py` to automatically generate fire front masks.
 
 ### Example Usage
 
 ``` bash
-python create_sfl_labels.py     --input_dir dataset/images     --label_dir dataset/labels     --output_dir dataset/sfl_masks     --sam_checkpoint path/to/sam_vit_h_4b8939.pth     --device cuda
+python create_SFL_labels.py
 ```
-
-### Script Overview (`create_sfl_labels.py`)
-
-``` python
-import os
-import torch
-import cv2
-from segment_anything import sam_model_registry, SamPredictor
-
-def generate_sfl_masks(image_path, label_json, sam_checkpoint):
-    sam = sam_model_registry["vit_h"](checkpoint=sam_checkpoint)
-    predictor = SamPredictor(sam)
-    # Load image and manual hints (Labelme JSON)
-    # Predict masks using SAM and merge overlapping ones
-    # Save merged mask as .png
-```
-
-The script merges multiple overlapping masks into a **single clean mask
-per region**, ensuring: - Sharp and continuous fire front boundaries -
-Removal of redundant overlapping edges - Preservation of large, distinct
-regions
 
 ------------------------------------------------------------------------
 
 ## 📦 Output Example
 
     dataset/
-    ├── sfl_masks/
-    │   ├── IMG_001_mask.png
-    │   ├── IMG_002_mask.png
+    ├── labels/
+    │   ├── 9621.png
     │   └── ...
 
 ------------------------------------------------------------------------
